@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { StateProvider } from "./utils/StateProvider";
 
 import SelectScene from "./scenes/SelectScene/index";
@@ -15,7 +16,9 @@ export default function App() {
 
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
-      <SelectScene />
+      <BrowserRouter>
+        <SelectScene />
+      </BrowserRouter>
     </StateProvider>
   );
 }
