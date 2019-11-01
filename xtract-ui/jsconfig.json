@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["./src/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "scenes/*": ["./src/scenes/*"],
+      "components/*": ["./src/components/*"],
+      "services/*": ["./src/services/*"]
+    }
+  }
+}
