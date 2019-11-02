@@ -1,7 +1,7 @@
 import React from "react";
 import useFileHandler from "../../../utils/useFileHandler";
 import FileInput from "./FileInput";
-import { useFileContextState } from "src/utils/FileContextProvider";
+import { useFileContextState } from "../../../utils/FileContextProvider";
 import {
   LOADED,
   INIT,
