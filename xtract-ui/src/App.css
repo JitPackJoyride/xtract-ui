@@ -21,12 +21,71 @@
   color: #09d3ac;
 }
 
-.headerCSS {
+.Header-component {
   position: relative;
   background: linear-gradient(purple, violet);
   width: 100vw;
-  height: 8vh;
+  height: 7vh;
   top: 0;
   left: 0;
   color: white;
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  justify-content: flex-start;
 }
+
+.App-title{
+  line-height: 7vh;
+  font-size: 5vh;
+  padding-left: 2vw;
+  font-family: 'Dosis', sans-serif;
+}
+
+.App-icon{
+  padding: 1vh;
+  padding-left: 4vh;
+  width: 5vh;
+  height: 5vh;
+}
+
+.Choose-Files-Button{
+  border: 2px violet solid;
+  background: linear-gradient(purple, blue);
+  width: 10vw;
+  height: 6vh;
+  border-radius: 3vh;
+  color: white;
+  line-height: 5vh;
+  font-size: 3vh;
+  font-family: 'Dosis', sans-serif;
+  
+}
+.Choose-Files-Button:hover {
+}
+
+.Submit-Button{
+  cursor: pointer;
+  border: 2px violet solid;
+  background: linear-gradient(purple, blue);
+  width: 10vw;
+  height: 6vh;
+  border-radius: 3vh;
+  color: white;
+  line-height: 5vh;
+  font-size: 3vh;
+  font-family: 'Dosis', sans-serif;
+}
+.Submit-Button:hover {
+}
+
+input[type=file], select{
+  /* background: blue; */
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:2;
+  opacity: 0;
+  width: 10vw;
+  height: 6vh;
+  border:0px solid transparent;
+} 

@@ -9,7 +9,8 @@
       "helpers/*": ["./src/helpers/*"],
       "scenes/*": ["./src/scenes/*"],
       "components/*": ["./src/components/*"],
-      "services/*": ["./src/services/*"]
+      "services/*": ["./src/services/*"],
+      "assets/*": ["./src/assets/*"]
     }
   }
 }
