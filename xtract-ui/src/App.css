@@ -80,6 +80,7 @@
 
 input[type=file], select{
   /* background: blue; */
+  border-radius: 3vh;
   position: absolute;
   top:0;
   left:0;
