@@ -21,12 +21,12 @@
   color: #09d3ac;
 }
 
-.App-header {
-  position: absolute;
+.headerCSS {
+  position: relative;
   background: linear-gradient(purple, violet);
   width: 100vw;
-  height: 20px;
+  height: 8vh;
   top: 0;
   left: 0;
-  color: black;
+  color: white;
 }

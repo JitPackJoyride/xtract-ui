@@ -2,8 +2,7 @@ import React from "react";
 import useFileHandler from "../../utils/useFileHandler";
 import "./SelectScene.css";
 import FileInput from "./components/FileInput";
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
+
 
 const SelectScene = () => {
   const {
@@ -18,8 +17,6 @@ const SelectScene = () => {
   } = useFileHandler();
 
   return (
-    <div>
-      <HeaderComponent />
       <div className="container">
         <form className="form" onSubmit={onSubmit}>
           {status === "FILES_UPLOADED" && (
@@ -50,8 +47,7 @@ const SelectScene = () => {
           </div>
         </form>
       </div>
-      <FooterComponent />
-    </div>
+      
   );
 };
 
