@@ -1,7 +1,7 @@
 import React from "react";
 
 const FileInput = props => (
-  <div style={{ position: "relative" }}>
+  <div className="File-Input-Component">
     <input
       // style={{background: 'blue'}}
       className=""

@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  
 }
+
+
 
 .App-logo {
   height: 40vmin;
@@ -47,11 +50,14 @@
   width: 5vh;
   height: 5vh;
 }
-
+.File-Input-Component{
+  position: relative;
+  margin: 10px;
+}
 .Choose-Files-Button {
   border: 2px violet solid;
   background: linear-gradient(purple, blue);
-  width: 10vw;
+  width: 20vh;
   height: 6vh;
   border-radius: 3vh;
   color: white;
@@ -67,13 +73,14 @@
   cursor: pointer;
   border: 2px violet solid;
   background: linear-gradient(purple, blue);
-  width: 10vw;
+  width: 20vh;
   height: 6vh;
   border-radius: 3vh;
   color: white;
   line-height: 5vh;
   font-size: 3vh;
   font-family: "Dosis", sans-serif;
+  margin: 10px;
 }
 
 .Submit-Button:hover {
@@ -88,7 +95,25 @@ select {
   left: 0;
   z-index: 2;
   opacity: 0;
-  width: 10vw;
+  width: 20vh;
   height: 6vh;
   border: 0px solid transparent;
 }
+.background{
+  background: linear-gradient(270deg, #ee85ff, #85c8ff);
+background-size: 400% 400%;
+width: 100vw;
+height: 100vh;
+animation: AnimationName 6s ease infinite;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}}
+
+.Button-Group{
+  display: flex;
+  justify-content: center;
+}
+

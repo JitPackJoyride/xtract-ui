@@ -5,7 +5,7 @@ import HeaderComponent from "../SelectScene/components/HeaderComponent";
 import FooterComponent from "../SelectScene/components/FooterComponent";
 export default function Main() {
   return (
-    <div>
+    <div className="background">
       <Route>
         <Switch>
           <Route path="/">

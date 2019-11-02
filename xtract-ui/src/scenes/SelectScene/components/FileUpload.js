@@ -28,7 +28,7 @@ const FileUpload = () => {
             </div>
           </div>
         )}
-        <div>
+        <div className="Button-Group">
           <FileInput onChange={onChange} />
           <button type="submit" className="Submit-Button">
             Submit
