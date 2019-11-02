@@ -27,6 +27,7 @@ const useFileHandler = () => {
     e => {
       e.preventDefault();
       if (files.length) {
+        console.log("submit is called", files);
         dispatch({ type: "submit" });
       } else {
         window.alert("You don't have any files loaded.");
@@ -43,6 +44,7 @@ const useFileHandler = () => {
         return { file, id: index, src };
       });
       const allFiles = files.concat(newFiles);
+      console.log("allFiles", allFiles);
       dispatch({ type: "load", files: allFiles });
     }
   };
@@ -51,6 +53,7 @@ const useFileHandler = () => {
   useEffect(() => {
     if (pending.length && next == null) {
       const next = pending[0];
+      console.log("next", next);
       dispatch({ type: "next", next });
     }
   }, [next, pending]);
@@ -65,7 +68,9 @@ const useFileHandler = () => {
         .then(() => {
           const prev = next;
           logUploadedFile(++countRef.current);
-          dispatch({ type: "file-uploaded", prev, pending });
+          console.log("process next file", prev, pending.slice(1));
+          const nextPending = pending.slice(1);
+          dispatch({ type: "file-uploaded", prev, pending: nextPending });
         })
         .catch(error => {
           console.error(error);
@@ -77,11 +82,10 @@ const useFileHandler = () => {
   // Ends the upload process
   useEffect(() => {
     if (!pending.length && uploading) {
+      console.log("files are uploaded");
       dispatch({ type: "files-uploaded" });
     }
   }, [pending.length, uploading]);
-
-  const oldState = { files, pending, next, uploading, uploaded, status };
 
   return {
     onSubmit,
