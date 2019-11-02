@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useReducer, useRef } from "react";
+import { useFileContextState } from "./FileContextProvider";
 
 const api = {
   uploadFile({ timeout = 550 }) {
@@ -16,66 +17,22 @@ const logUploadedFile = (num, color = "green") => {
   console.log(msg, style);
 };
 
-// Constants
-const LOADED = "LOADED";
-const INIT = "INIT";
-const PENDING = "PENDING";
-const FILES_UPLOADED = "FILES_UPLOADED";
-const UPLOAD_ERROR = "UPLOAD_ERROR";
-
-const initialState = {
-  files: [],
-  pending: [],
-  next: null,
-  uploading: false,
-  uploaded: {},
-  status: "idle"
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "load":
-      return { ...state, files: action.files, status: LOADED };
-    case "submit":
-      return { ...state, uploading: true, pending: state.files, status: INIT };
-    case "next":
-      return {
-        ...state,
-        next: action.next,
-        status: PENDING
-      };
-    case "file-uploaded":
-      return {
-        ...state,
-        next: null,
-        pending: action.pending,
-        uploaded: {
-          ...state.uploaded,
-          [action.prev.id]: action.prev.file
-        }
-      };
-    case "files-uploaded":
-      return { ...state, uploading: false, status: FILES_UPLOADED };
-    case "set-upload-error":
-      return { ...state, uploadError: action.error, status: UPLOAD_ERROR };
-    default:
-      return state;
-  }
-};
-
 const useFileHandler = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [
+    { files, pending, next, uploading, uploaded, status },
+    dispatch
+  ] = useFileContextState();
 
   const onSubmit = useCallback(
     e => {
       e.preventDefault();
-      if (state.files.length) {
+      if (files.length) {
         dispatch({ type: "submit" });
       } else {
         window.alert("You don't have any files loaded.");
       }
     },
-    [state.files.length]
+    [files.length]
   );
 
   const onChange = e => {
@@ -92,24 +49,22 @@ const useFileHandler = () => {
 
   // Sets the next file when it detects that its ready to go
   useEffect(() => {
-    if (state.pending.length && state.next == null) {
-      const next = state.pending[0];
+    if (pending.length && next == null) {
+      const next = pending[0];
       dispatch({ type: "next", next });
     }
-  }, [state.next, state.pending]);
+  }, [next, pending]);
 
   const countRef = useRef(0);
 
   // Processes the next pending thumbnail when ready
   useEffect(() => {
-    if (state.pending.length && state.next) {
-      const { next } = state;
+    if (pending.length && next) {
       api
         .uploadFile(next)
         .then(() => {
           const prev = next;
           logUploadedFile(++countRef.current);
-          const pending = state.pending.slice(1);
           dispatch({ type: "file-uploaded", prev, pending });
         })
         .catch(error => {
@@ -117,17 +72,19 @@ const useFileHandler = () => {
           dispatch({ type: "set-upload-error", error });
         });
     }
-  }, [state]);
+  }, [files, pending, next, uploading, uploaded, status]);
 
   // Ends the upload process
   useEffect(() => {
-    if (!state.pending.length && state.uploading) {
+    if (!pending.length && uploading) {
       dispatch({ type: "files-uploaded" });
     }
-  }, [state.pending.length, state.uploading]);
+  }, [pending.length, uploading]);
+
+  const oldState = { files, pending, next, uploading, uploaded, status };
 
   return {
-    ...state,
+    ...oldState,
     onSubmit,
     onChange
   };
