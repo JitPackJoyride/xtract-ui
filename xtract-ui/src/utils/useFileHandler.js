@@ -42,8 +42,8 @@ const useFileHandler = () => {
         const src = window.URL.createObjectURL(file);
         return { file, id: index, src };
       });
-      const files = newFiles;
-      dispatch({ type: "load", files });
+      const allFiles = files.concat(newFiles);
+      dispatch({ type: "load", files: allFiles });
     }
   };
 
