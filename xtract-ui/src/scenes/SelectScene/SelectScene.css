@@ -1,5 +1,5 @@
 .container {
-  position: absolute;
+  position: relative;
   padding: 8px;
   width: 100%;
   box-sizing: border-box;
