@@ -1,9 +1,6 @@
 .App {
   text-align: center;
-  
 }
-
-
 
 .App-logo {
   height: 40vmin;
@@ -26,7 +23,7 @@
 
 .Header-component {
   position: fixed;
-  z-index:3;
+  z-index: 3;
   background: linear-gradient(217deg, purple, violet);
   width: 100vw;
   height: 7vh;
@@ -36,7 +33,7 @@
   border-radius: 0px 0px 20px 20px;
   display: flex;
   justify-content: flex-start;
-  box-shadow: 0px 2px 5px 1px rgba(153,137,153,1);
+  box-shadow: 0px 2px 5px 1px rgba(153, 137, 153, 1);
 }
 
 .App-title {
@@ -52,7 +49,7 @@
   width: 5vh;
   height: 5vh;
 }
-.File-Input-Component{
+.File-Input-Component {
   position: relative;
   margin: 10px;
 }
@@ -101,41 +98,47 @@ select {
   height: 6vh;
   border: 0px solid transparent;
 }
-.background{
+.background {
   background: linear-gradient(270deg, #ee85ff, #85c8ff);
   position: fixed;
   z-index: -2;
-background-size: 400% 400%;
-width: 100vw;
-height: 100vh;
-animation: AnimationName 6s ease infinite;
+  background-size: 400% 400%;
+  width: 100vw;
+  height: 100vh;
+  animation: AnimationName 6s ease infinite;
 }
 
 @keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-.Button-Group{
+.Button-Group {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.Tutorial{
-  padding-top:15vh;
+.Tutorial {
+  padding-top: 15vh;
   padding-left: 3vw;
   padding-right: 3vw;
   height: 40vh;
   display: flex;
   justify-content: space-between;
 }
-.Tutorial-Step{
+.Tutorial-Step {
   width: 25vw;
-
 }
 
-.Tutorial-Flow{
+.Tutorial-Flow {
   font-size: 5vw;
   line-height: 25vw;
 }
@@ -145,12 +148,12 @@ animation: AnimationName 6s ease infinite;
   flex-direction: column;
   justify-content: flex-end;
 } */
-.Tutorial-Description{
+.Tutorial-Description {
   display: flex;
   justify-content: space-evenly;
   padding-top: 3vh;
 }
-.Description{
+.Description {
   width: 33vw;
   text-align: center;
   color: white;
@@ -159,7 +162,7 @@ animation: AnimationName 6s ease infinite;
 }
 
 @media only screen and (max-width: 600px) {
-  .Button-Group{
+  .Button-Group {
     position: relative;
     left: 8vw;
     /* transform: translate(-20%,0%); */
@@ -167,7 +170,7 @@ animation: AnimationName 6s ease infinite;
     flex-direction: column;
   }
   .Submit-Button {
-        width: 80vw;
+    width: 80vw;
   }
   .Choose-Files-Button {
     width: 80vw;
@@ -175,88 +178,125 @@ animation: AnimationName 6s ease infinite;
   input[type="file"],
   select {
     width: 80vw;
-}
-.File-Input-Component{
-  margin:0px;
-}
-.Submit-Button {
-  margin: 0px;
-}
+  }
+  .File-Input-Component {
+    margin: 0px;
+  }
+  .Submit-Button {
+    margin: 0px;
+  }
 
+  .Tutorial {
+    position: relative;
+    padding: 0;
+    padding-top: 15vh;
+    display: block;
+    /* flex-direction: column; */
+  }
+  .Tutorial-Step {
+    position: absolute;
 
-.Tutorial{
-  position: relative;
-  padding:0;
-  padding-top:15vh;
-  display: block;
-  /* flex-direction: column; */
+    width: 60vw;
+    margin-left: 20vw;
+  }
+
+  .Tutorial-Flow {
+    font-size: 20vw;
+    text-align: center;
+    display: none;
+  }
+
+  .Fill-Form {
+    animation: disappear1 8s linear infinite;
+  }
+  .Upload-Doc {
+    animation: disappear2 8s linear infinite;
+  }
+  .Get-Account {
+    animation: disappear3 8s linear infinite;
+  }
+
+  .Tutorial-Description {
+    display: block;
+    padding-top: 0vh;
+    padding-bottom: 7vh;
+  }
+  .Description {
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    color: white;
+    font-size: 3vh;
+    font-family: "Dosis", sans-serif;
+  }
 }
-.Tutorial-Step{
-  position: absolute;
-  
-  width: 60vw;
-  margin-left: 20vw;
-
-}
-
-.Tutorial-Flow{
-  font-size: 20vw;
-  text-align: center;
-  display: none;
-}
-
-.Fill-Form  {
+.Describe1 {
   animation: disappear1 8s linear infinite;
 }
-.Upload-Doc {
+.Describe2 {
   animation: disappear2 8s linear infinite;
 }
-.Get-Account {
+.Describe3 {
   animation: disappear3 8s linear infinite;
 }
 
-
-
-.Tutorial-Description{
-  display: block;
-  padding-top: 0vh;
-  padding-bottom: 7vh;
-}
-.Description{
-  position: absolute;
-  width: 100vw;
-  text-align: center;
-  color: white;
-  font-size: 3vh;
-  font-family: "Dosis", sans-serif;
-}
-}
-.Describe1{ animation: disappear1 8s linear infinite;}
-.Describe2{ animation: disappear2 8s linear infinite;}
-.Describe3{ animation: disappear3 8s linear infinite;}
-
 @keyframes disappear1 {
-  0%  {opacity: 1;}
-  25% {opacity: 1;}
-  33% {opacity: 0;}
-  66% {opacity: 0;}
-  100%{opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes disappear2 {
-  0%  {opacity: 0;}
-  25% {opacity: 0;}
-  33% {opacity: 1;}
-  58% {opacity: 1;}
-  66% {opacity: 0;}
-  100%{opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes disappear3 {
-  0%  {opacity: 0;}
-  32% {opacity: 0;}
-  33% {opacity: 0;}
-  58% {opacity: 0;}
-  66% {opacity: 1;}
-  92% {opacity: 1;}
-  100%{opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+  32% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  58% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
