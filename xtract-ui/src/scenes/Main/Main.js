@@ -9,7 +9,7 @@ export default function Main() {
       <Route>
         <Switch>
           <Route path="/">
-          <HeaderComponent />
+            <HeaderComponent />
             <SelectScene />
             <FooterComponent />
           </Route>

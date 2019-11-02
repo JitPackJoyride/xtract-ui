@@ -34,21 +34,21 @@
   justify-content: flex-start;
 }
 
-.App-title{
+.App-title {
   line-height: 7vh;
   font-size: 5vh;
   padding-left: 2vw;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
 
-.App-icon{
+.App-icon {
   padding: 1vh;
   padding-left: 4vh;
   width: 5vh;
   height: 5vh;
 }
 
-.Choose-Files-Button{
+.Choose-Files-Button {
   border: 2px violet solid;
   background: linear-gradient(purple, blue);
   width: 10vw;
@@ -57,13 +57,13 @@
   color: white;
   line-height: 5vh;
   font-size: 3vh;
-  font-family: 'Dosis', sans-serif;
-  
+  font-family: "Dosis", sans-serif;
 }
+
 .Choose-Files-Button:hover {
 }
 
-.Submit-Button{
+.Submit-Button {
   cursor: pointer;
   border: 2px violet solid;
   background: linear-gradient(purple, blue);
@@ -73,20 +73,22 @@
   color: white;
   line-height: 5vh;
   font-size: 3vh;
-  font-family: 'Dosis', sans-serif;
+  font-family: "Dosis", sans-serif;
 }
+
 .Submit-Button:hover {
 }
 
-input[type=file], select{
+input[type="file"],
+select {
   /* background: blue; */
   border-radius: 3vh;
   position: absolute;
-  top:0;
-  left:0;
-  z-index:2;
+  top: 0;
+  left: 0;
+  z-index: 2;
   opacity: 0;
   width: 10vw;
   height: 6vh;
-  border:0px solid transparent;
-} 
+  border: 0px solid transparent;
+}
