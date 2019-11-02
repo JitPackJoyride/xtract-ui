@@ -4,6 +4,7 @@ import SelectScene from "../SelectScene/SelectScene";
 import HeaderComponent from "../SelectScene/components/HeaderComponent";
 import FooterComponent from "../SelectScene/components/FooterComponent";
 import TutorialComponent from "../SelectScene/components/TutorialComponent";
+import TreeComponent from "../SelectScene/components/TreeComponent";
 
 export default function Main() {
   return (
@@ -16,6 +17,7 @@ export default function Main() {
             <HeaderComponent />
             <TutorialComponent />
             <SelectScene />
+            <TreeComponent />
             <FooterComponent />
           </Route>
         </Switch>

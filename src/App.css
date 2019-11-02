@@ -26,6 +26,7 @@
 
 .Header-component {
   position: fixed;
+  z-index:3;
   background: linear-gradient(217deg, purple, violet);
   width: 100vw;
   height: 7vh;
@@ -258,3 +259,4 @@ animation: AnimationName 6s ease infinite;
   92% {opacity: 1;}
   100%{opacity: 0;}
 }
+
