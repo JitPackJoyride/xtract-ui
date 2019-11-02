@@ -84,7 +84,6 @@ const useFileHandler = () => {
   const oldState = { files, pending, next, uploading, uploaded, status };
 
   return {
-    ...oldState,
     onSubmit,
     onChange
   };

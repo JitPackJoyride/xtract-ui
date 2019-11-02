@@ -30,7 +30,9 @@ const FileUpload = () => {
         )}
         <div>
           <FileInput onChange={onChange} />
-          <button type="submit">Submit</button>
+          <button type="submit" className="Submit-Button">
+            Submit
+          </button>
         </div>
         <div>
           {files.map(({ file, src, id }, index) => (
