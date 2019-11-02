@@ -20,3 +20,13 @@
 .App-link {
   color: #09d3ac;
 }
+
+.App-header {
+  position: absolute;
+  background: linear-gradient(purple, violet);
+  width: 100vw;
+  height: 20px;
+  top: 0;
+  left: 0;
+  color: black;
+}

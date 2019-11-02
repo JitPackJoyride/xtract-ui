@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { StateProvider } from "./utils/StateProvider";
+import "./App.css";
 
-import SelectScene from "./scenes/SelectScene/index";
+import Main from "./scenes/Main/Main";
 
 export default function App() {
   const initialState = {};
@@ -17,7 +18,7 @@ export default function App() {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <BrowserRouter>
-        <SelectScene />
+        <Main />
       </BrowserRouter>
     </StateProvider>
   );

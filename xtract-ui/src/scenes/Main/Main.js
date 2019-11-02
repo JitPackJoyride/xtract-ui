@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import SelectScene from "../SelectScene";
+import SelectScene from "../SelectScene/SelectScene";
 
 export default function Main() {
   return (
