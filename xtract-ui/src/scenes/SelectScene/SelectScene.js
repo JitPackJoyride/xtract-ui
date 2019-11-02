@@ -41,7 +41,7 @@ const SelectScene = () => {
                   opacity: uploaded[id] ? 0.2 : 1
                 }}
                 key={`thumb${index}`}
-                className="thumbnail-wrSelectSceneer"
+                className="thumbnail-wrapper"
               >
                 <img className="thumbnail" src={src} alt="" />
                 <div className="thumbnail-caption">{file.name}</div>

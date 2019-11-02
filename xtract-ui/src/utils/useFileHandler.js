@@ -80,11 +80,12 @@ const useFileHandler = () => {
 
   const onChange = e => {
     if (e.target.files.length) {
-      const arrFiles = Array.from(e.target.files);
-      const files = arrFiles.map((file, index) => {
+      const arrNewFiles = Array.from(e.target.files);
+      const newFiles = arrNewFiles.map((file, index) => {
         const src = window.URL.createObjectURL(file);
         return { file, id: index, src };
       });
+      const files = newFiles;
       dispatch({ type: "load", files });
     }
   };
