@@ -2,7 +2,7 @@
   "name": "xtract-ui",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://xtracthk.co",
+  "homepage": "http://www.xtracthk.co",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.11.0",
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
