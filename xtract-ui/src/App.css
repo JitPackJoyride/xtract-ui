@@ -26,7 +26,7 @@
 
 .Header-component {
   position: fixed;
-  background: linear-gradient(purple, violet);
+  background: linear-gradient(217deg, purple, violet);
   width: 100vw;
   height: 7vh;
   top: 0;
@@ -214,6 +214,26 @@ animation: AnimationName 6s ease infinite;
   animation: disappear3 8s linear infinite;
 }
 
+
+
+.Tutorial-Description{
+  display: block;
+  padding-top: 0vh;
+  padding-bottom: 7vh;
+}
+.Description{
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  color: white;
+  font-size: 3vh;
+  font-family: "Dosis", sans-serif;
+}
+}
+.Describe1{ animation: disappear1 8s linear infinite;}
+.Describe2{ animation: disappear2 8s linear infinite;}
+.Describe3{ animation: disappear3 8s linear infinite;}
+
 @keyframes disappear1 {
   0%  {opacity: 1;}
   25% {opacity: 1;}
@@ -238,22 +258,3 @@ animation: AnimationName 6s ease infinite;
   92% {opacity: 1;}
   100%{opacity: 0;}
 }
-
-.Tutorial-Description{
-  display: block;
-  padding-top: 0vh;
-  padding-bottom: 7vh;
-}
-.Description{
-  position: absolute;
-  width: 100vw;
-  text-align: center;
-  color: white;
-  font-size: 3vh;
-  font-family: "Dosis", sans-serif;
-}
-.Describe1{ animation: disappear1 8s linear infinite;}
-.Describe2{ animation: disappear2 8s linear infinite;}
-.Describe3{ animation: disappear3 8s linear infinite;}
-}
-
