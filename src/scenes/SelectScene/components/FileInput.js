@@ -12,6 +12,9 @@ const FileInput = props => (
       {...props}
     />
     <button className="Choose-Files-Button">Choose File</button>
+    <div className="Shiny">
+      <div className="Glossy-Bar"></div>
+    </div>
   </div>
 );
 
