@@ -17,7 +17,7 @@ export default function Main() {
             <HeaderComponent />
             <TutorialComponent />
             <SelectScene />
-            <TreeComponent />
+            {/* <TreeComponent /> */}
             <FooterComponent />
           </Route>
         </Switch>
