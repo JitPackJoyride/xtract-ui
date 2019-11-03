@@ -24,7 +24,7 @@ export class TreeComponent extends Component {
       Object.entries(value[0][key]["individuals"]).forEach((item, index) => {
         processedData.push([
           idCount,
-          item[1]["name"],
+          item[1]["name"] + " " + item[1]["shares"] + "%",
           currentParent,
           1,
           "black"
