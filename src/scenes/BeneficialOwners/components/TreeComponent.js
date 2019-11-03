@@ -62,22 +62,18 @@ export class TreeComponent extends Component {
     return (
       <Chart
         className="Tree-Diagram"
-        width={"150vw"}
+        width={"200vw"}
         height={"90vh"}
         chartType="WordTree"
         loader={<div>Loading Chart</div>}
         data={this.state.data}
         options={{
-          colors: ["black", "black", "black"],
+          colors: ["red", "blue", "black"],
           backgroundColor: "transparent",
           wordtree: {
             format: "explicit",
             type: "suffix",
-            fontSize: 18
           },
-          textStyle: {
-            fontName: 'Times-Roman',
-            fontSize: 18},
           animation: {
             startup: true,
             easing: "linear",
