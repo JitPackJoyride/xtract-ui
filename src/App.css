@@ -90,6 +90,10 @@
   animation: movingShiny 3s infinite;
 }
 
+.Tree-Diagram{
+  padding: 8vh;
+}
+
 @keyframes movingShiny {
      0% { transform: rotate(30deg); left: -30px; }
     50% { transform: rotate(30deg); left: 200px; }

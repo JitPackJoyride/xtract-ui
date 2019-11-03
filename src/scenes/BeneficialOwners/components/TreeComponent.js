@@ -63,8 +63,9 @@ export class TreeComponent extends Component {
   render() {
     return (
       <Chart
+        className="Tree-Diagram"
         width={"150vw"}
-        height={"100vh"}
+        height={"90vh"}
         chartType="WordTree"
         loader={<div>Loading Chart</div>}
         data={this.state.data}
@@ -75,6 +76,9 @@ export class TreeComponent extends Component {
             format: "explicit",
             type: "suffix"
           },
+          textStyle: {
+            fontName: 'Times-Roman',
+            fontSize: 18},
           animation: {
             startup: true,
             easing: "linear",
