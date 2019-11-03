@@ -4,20 +4,23 @@ import SelectScene from "../SelectScene/SelectScene";
 import HeaderComponent from "../SelectScene/components/HeaderComponent";
 import FooterComponent from "../SelectScene/components/FooterComponent";
 import TutorialComponent from "../SelectScene/components/TutorialComponent";
-import TreeComponent from "../SelectScene/components/TreeComponent";
+import BeneficialOwners from "../BeneficialOwners/BeneficialOwners";
 
 export default function Main() {
   return (
     <div>
-      <div className="background">
-        </div>
+      <div className="background"></div>
       <Route>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <HeaderComponent />
             <TutorialComponent />
             <SelectScene />
-            {/* <TreeComponent /> */}
+            <FooterComponent />
+          </Route>
+          <Route exact path="/beneficialOwners">
+            <HeaderComponent />
+            <BeneficialOwners />
             <FooterComponent />
           </Route>
         </Switch>
