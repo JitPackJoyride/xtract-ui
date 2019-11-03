@@ -1,74 +1,90 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Chart } from "react-google-charts";
+import SampleData from "../../../constants/SampleData";
 
 export class TreeComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
 
+  componentDidMount() {
+    let processedData = [
+      ["id", "childLabel", "parent", "size", { role: "style" }]
+    ];
+    let idCount = 0;
+    let currentParent = 0;
+    let companies = [];
+    Object.entries(SampleData).forEach(([key, value]) => {
+      processedData.push([idCount, key, -1, 1, "black"]);
+      currentParent = idCount;
+      idCount++;
+      Object.entries(value[0][key]["individuals"]).forEach((item, index) => {
+        processedData.push([
+          idCount,
+          item[1]["name"],
+          currentParent,
+          item[1]["shares"],
+          "black"
+        ]);
+        idCount++;
+      });
+      Object.entries(value[0][key]["companies"]).forEach((item, index) => {
+        processedData.push([idCount, item[1], currentParent, 1, "black"]);
+        companies.push({ name: item[1], id: idCount });
+        idCount++;
+      });
+      for (let i = 1; i <= companies.length; i++) {
+        currentParent = companies[i - 1]["id"];
+        console.log(companies[i - 1], value[i]);
+        console.log(companies[i - 1]["id"], value[i][companies[i - 1]["name"]]);
+        Object.entries(
+          value[i][companies[i - 1]["name"]]["individuals"]
+        ).forEach((item, index) => {
+          processedData.push([
+            idCount,
+            item[1]["name"],
+            currentParent,
+            item[1]["shares"],
+            "black"
+          ]);
+          idCount++;
+        });
+      }
+    });
+    console.log(processedData);
+    this.setState({
+      data: processedData
+    });
+  }
 
-    render() {
-        return (
-            <Chart
-  width={'150vw'}
-  height={'100vh'}
-  chartType="WordTree"
-  loader={<div>Loading Chart</div>}
-  data={[
-    ['id', 'childLabel', 'parent', 'size', { role: 'style' }],
-    [0, 'Life', -1, 1, 'black'],
-    [1, 'Archaea', 0, 1, 'black'],
-    [2, 'Eukarya', 0, 5, 'black'],
-    [3, 'Bacteria', 0, 1, 'black'],
-    [4, 'Crenarchaeota', 1, 1, 'black'],
-    [5, 'Euryarchaeota', 1, 1, 'black'],
-    [6, 'Korarchaeota', 1, 1, 'black'],
-    [7, 'Nanoarchaeota', 1, 1, 'black'],
-    [8, 'Thaumarchaeota', 1, 1, 'black'],
-
-    [9, 'Amoebae', 2, 1, 'black'],
-    [10, 'Plants', 2, 1, 'black'],
-    [11, 'Chromalveolata', 2, 1, 'black'],
-    [12, 'Opisthokonta', 2, 5, 'black'],
-    [13, 'Rhizaria', 2, 1, 'black'],
-    [14, 'Excavata', 2, 1, 'black'],
-
-    [15, 'Animalia', 12, 5, 'black'],
-    [16, 'Fungi', 12, 2, 'black'],
-
-    [17, 'Parazoa', 15, 2, 'black'],
-    [18, 'Eumetazoa', 15, 5, 'black'],
-
-    [19, 'Radiata', 18, 2, 'black'],
-    [20, 'Bilateria', 18, 5, 'black'],
-
-    [21, 'Orthonectida', 20, 2, 'black'],
-    [22, 'Rhombozoa', 20, 2, 'black'],
-    [23, 'Acoelomorpha', 20, 1, 'black'],
-    [24, 'Deuterostomia', 20, 5, 'black'],
-    [25, 'Chaetognatha', 20, 2, 'black'],
-    [26, 'Protostomia', 20, 2, 'black'],
-
-    [27, 'Chordata', 24, 5, 'black'],
-    [28, 'Hemichordata', 24, 1, 'black'],
-    [29, 'Echinodermata', 24, 1, 'black'],
-    [30, 'Xenoturbellida', 24, 1, 'black'],
-    [31, 'Vetulicolia', 24, 1, 'black'],
-  ]}
-  options={{
-    colors: ['black', 'black', 'black'],
-    backgroundColor: 'transparent',
-    wordtree: {
-      format: 'explicit',
-      type: 'suffix',
-    },
-    animation: {
-        startup: true,
-        easing: 'linear',
-        duration: 1500,
-      },
-  }}
-//   rootProps={{ 'data-testid': '2' }}
-/>
-        );
-    }
+  render() {
+    return (
+      <Chart
+        width={"150vw"}
+        height={"100vh"}
+        chartType="WordTree"
+        loader={<div>Loading Chart</div>}
+        data={this.state.data}
+        options={{
+          colors: ["black", "black", "black"],
+          backgroundColor: "transparent",
+          wordtree: {
+            format: "explicit",
+            type: "suffix"
+          },
+          animation: {
+            startup: true,
+            easing: "linear",
+            duration: 1500
+          }
+        }}
+        //   rootProps={{ 'data-testid': '2' }}
+      />
+    );
+  }
 }
 
 export default TreeComponent;
