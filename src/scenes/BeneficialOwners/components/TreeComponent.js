@@ -18,7 +18,7 @@ export class TreeComponent extends Component {
     let currentParent = 0;
     let companies = [];
     Object.entries(SampleData).forEach(([key, value]) => {
-      processedData.push([idCount, key, -1, 1, "black"]);
+      processedData.push([idCount, key, -1, value[0][key]["individuals"].length + value[0][key]["companies"].length, "black"]);
       currentParent = idCount;
       idCount++;
       Object.entries(value[0][key]["individuals"]).forEach((item, index) => {
@@ -26,28 +26,26 @@ export class TreeComponent extends Component {
           idCount,
           item[1]["name"],
           currentParent,
-          item[1]["shares"],
+          1,
           "black"
         ]);
         idCount++;
       });
       Object.entries(value[0][key]["companies"]).forEach((item, index) => {
-        processedData.push([idCount, item[1], currentParent, 1, "black"]);
+        processedData.push([idCount, item[1], currentParent, value[index + 1][item[1]]["individuals"].length, "black"]);
         companies.push({ name: item[1], id: idCount });
         idCount++;
       });
       for (let i = 1; i <= companies.length; i++) {
         currentParent = companies[i - 1]["id"];
-        console.log(companies[i - 1], value[i]);
-        console.log(companies[i - 1]["id"], value[i][companies[i - 1]["name"]]);
         Object.entries(
           value[i][companies[i - 1]["name"]]["individuals"]
         ).forEach((item, index) => {
           processedData.push([
             idCount,
-            item[1]["name"],
+            item[1]["name"] + " " + item[1]["shares"] + "%",
             currentParent,
-            item[1]["shares"],
+            1,
             "black"
           ]);
           idCount++;
@@ -74,7 +72,8 @@ export class TreeComponent extends Component {
           backgroundColor: "transparent",
           wordtree: {
             format: "explicit",
-            type: "suffix"
+            type: "suffix",
+            fontSize: 18
           },
           textStyle: {
             fontName: 'Times-Roman',
